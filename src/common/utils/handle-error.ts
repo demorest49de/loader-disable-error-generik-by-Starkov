@@ -5,7 +5,7 @@ import { setAppErrorAC } from '../../app/app-reducer.ts'
 export const handleError = (error: unknown, dispatch: Dispatch) => {
 
   let errorMessage: string
-
+//  todo - isaxioserror
   if (isAxiosError<ServerError>(error)) {
     errorMessage = error.response ? error.response.data.errorMessages[0].message : error.message
   } else {

@@ -27,9 +27,13 @@ export const deleteDeckTC = (id: string) => async (dispatch: Dispatch) => {
 
 export const updateDeckTC = (params: UpdateDeckParams) => async (dispatch: Dispatch) => {
   try {
+    // на подходе к аксиос
+    // throw new Error('Нативная js ошибка с полем message')
     const res = await decksAPI.updateDeck(params)
+    // 500 errors
     dispatch(updateDeckAC(res.data))
   } catch (error) {
+    //server error
     handleError(error, dispatch)
   }
 }
